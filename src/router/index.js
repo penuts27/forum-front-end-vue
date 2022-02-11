@@ -29,18 +29,23 @@ const routes = [
   },
   {
     path: '/restaurants/feeds',
-    name: 'restaurents-feeds',
+    name: 'restaurants-feeds',
     component: () => import ('../views/RestaurantsFeeds.vue')
   },
   {
     path: '/restaurants/top',
-    name: 'restaurents-tops',
+    name: 'restaurants-tops',
     component: () => import ('../views/RestaurantsTop.vue')
   },
   {
-    path: '/restaurants/:id',
+    path: '/restaurant/:id',
     name: 'restaurant',
     component: () => import ('../views/Restaurant.vue')
+  },
+  {
+    path: '/restaurants/:id/dashboard',
+    name: 'restaurant-dashboard',
+    component: () => import ('../views/RestaurantDashboard.vue')
   },
   {
     path: '/users/top',
@@ -48,9 +53,23 @@ const routes = [
     component: () => import ('../views/UsersTop.vue')
   },
   {
-    path: '/users/:id',
-    name: 'users',
+    path: '/user/:id',
+    name: 'user',
     component: () => import ('../views/User.vue')
+  },
+  {
+    path: '/admin',
+    exact: true,
+    redirect: '/admin/restaurants' 
+  }
+  ,{
+    path: '/admin/restaurants',
+    name: 'admin-restaurants',
+    component: () => import ('../views/AdminRestaurants.vue')
+  },{
+    path: '/admin/restaurants/:id',
+    name: 'admin-restaurant',
+    component: () => import ('../views/AdminRestaurant.vue')
   },
   {
     path: '*',
